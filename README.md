@@ -1,6 +1,8 @@
 #  ML7614 Code for machine learning course 7614
 
 ## How to run
+
+ 0.code is here: https://github.com/yan9000/ml7614
  1. import the java-weka-jmathplot as a maven project in your IDE.
  2. in the command line of the project you can issue "mvn clean install" or you can update the maven project within the IDE to download the dependencies.   I'm using the Weka api and JMathPlot dependencies as declared in pom.xml
  3. there are 4 java files that can be run to generate different graphs of different datasets:
