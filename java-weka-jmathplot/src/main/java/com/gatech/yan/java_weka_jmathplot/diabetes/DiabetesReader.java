@@ -1,4 +1,4 @@
-package com.gatech.yan.java_weka_jmathplot;
+package com.gatech.yan.java_weka_jmathplot.diabetes;
 
 import java.awt.Color;
 import java.util.ArrayList;
@@ -8,6 +8,8 @@ import java.util.List;
 import javax.swing.JFrame;
 
 import org.math.plot.Plot2DPanel;
+
+import com.gatech.yan.java_weka_jmathplot.Point;
 
 import weka.classifiers.AbstractClassifier;
 import weka.classifiers.Evaluation;
