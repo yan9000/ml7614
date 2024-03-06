@@ -15,21 +15,21 @@ public class GenerateLearningCurves {
         	
         	DiabetesReader diabetes = new DiabetesReader();
              
-        	IBk knn = new IBk(3);
-        	diabetes.doClassifier(knn, "KNN Learning Curve");
-        	
-        	J48 j48 = new J48();
-        	String[] options = new String[]{"-C", "0.25", "-M", "2"};
-    		j48.setOptions(options);
-    		diabetes.doClassifier(j48, "Decision Tree J48");
-    		
-    		AdaBoostM1 ada = new AdaBoostM1();
-    		ada.setClassifier(j48);
-    		ada.setNumIterations(10);
-    		diabetes.doClassifier(ada, "Decision Tree AdaBoost J48");
+//        	IBk knn = new IBk(3);
+//        	diabetes.doClassifier(knn, "KNN Learning Curve");
+//        	
+//        	J48 j48 = new J48();
+//        	String[] options = new String[]{"-C", "0.25", "-M", "2"};
+//    		j48.setOptions(options);
+//    		diabetes.doClassifier(j48, "Decision Tree J48");
+//    		
+//    		AdaBoostM1 ada = new AdaBoostM1();
+//    		ada.setClassifier(j48);
+//    		ada.setNumIterations(10);
+//    		diabetes.doClassifier(ada, "Decision Tree AdaBoost J48");
     		
             MultilayerPerceptron neural = new MultilayerPerceptron();
-            options = new String[]{
+            String[] options = new String[]{
                     "-L", "0.3",  // Learning rate
                     "-M", "0.2",  // Momentum          
                     "-N", "500"  // Number of epochs                     
@@ -37,15 +37,15 @@ public class GenerateLearningCurves {
             neural.setOptions(options);
             diabetes.doClassifier(neural, "NN - MultilayerPerceptron");
             
-            SMO smo = new SMO();           
-            options = new String[]{
-                "-C", "1.0",  // Set the complexity constant
-                "-L", "0.001",  // Set the tolerance parameter
-                "-P", "1.0E-12",  // Set the epsilon for round-off error
-                "-K", "weka.classifiers.functions.supportVector.PolyKernel -E 3"  // Set the polynomial kernel with degree 3
-            };
-            smo.setOptions(options);
-            diabetes.doClassifier(smo, "Support Vector Machines");
+//            SMO smo = new SMO();           
+//            options = new String[]{
+//                "-C", "1.0",  // Set the complexity constant
+//                "-L", "0.001",  // Set the tolerance parameter
+//                "-P", "1.0E-12",  // Set the epsilon for round-off error
+//                "-K", "weka.classifiers.functions.supportVector.PolyKernel -E 3"  // Set the polynomial kernel with degree 3
+//            };
+//            smo.setOptions(options);
+//            diabetes.doClassifier(smo, "Support Vector Machines");
 
             
             

@@ -18,7 +18,7 @@ import weka.core.converters.ConverterUtils.DataSource;
 
 public class DiabetesReader {
 
-	static int diabetesDataSetSize = 768;
+	static int diabetesDataSetSize = 4177;
 	
 	public List<Point> mcTrainingPoints = new ArrayList<Point>();
 	public List<Point> mcTestingPoints = new ArrayList<Point>();
@@ -51,7 +51,7 @@ public class DiabetesReader {
 		Instances trainSet;
 		Instances testSet;	
 
-		data = new DataSource("diabetes.arff").getDataSet();
+		data = new DataSource("abalone.arff").getDataSet();
 		data.setClassIndex(data.numAttributes() - 1);	
 		
 		int trainSize = (int) Math.round(data.numInstances() * 0.8);
@@ -74,7 +74,7 @@ public class DiabetesReader {
 		int trainSize;
 		int testSize;
 
-		data = new DataSource("diabetes.arff").getDataSet();
+		data = new DataSource("abalone.arff").getDataSet();
 		data.setClassIndex(data.numAttributes() - 1);
 
 		 trainSize = (int) Math.round(data.numInstances() * 0.8);
@@ -126,7 +126,7 @@ public class DiabetesReader {
          testDataSet = new Instances(data, trainSize, testSize);
          pointsTesting.add(getTestingPointForDiabetes(trainDataSet, testDataSet,  c));
          
-         trainSize = (int) Math.round(data.numInstances() * 0.1);
+         trainSize = (int) Math.round(data.numInstances() * 0.001);
          testSize = data.numInstances() - trainSize;
          trainDataSet = new Instances(data, 0, trainSize);
          trainDataSet.setClassIndex(data.numAttributes() - 1);
@@ -140,7 +140,7 @@ public class DiabetesReader {
 
 		
 		Instances data;		
-		data = new DataSource("diabetes.arff").getDataSet();
+		data = new DataSource("abalone.arff").getDataSet();
 		data.setClassIndex(data.numAttributes() - 1);
 		return (getTrainingPoint(data, c));		
 	}
@@ -149,33 +149,67 @@ public class DiabetesReader {
 	private List<Point> getTrainingPoints(AbstractClassifier c) throws Exception {
 
 		List<Point> pointsTraining = new ArrayList<>();
-
-		Instances data;
-		data = new DataSource("diabetes20.arff").getDataSet();
+		Instances data;		
+		int trainSize;
+		Instances trainDataSet;		
+		
+		data = new DataSource("abalone.arff").getDataSet();
 		data.setClassIndex(data.numAttributes() - 1);
-		pointsTraining.add(getTrainingPoint(data, c));
-		data = new DataSource("diabetes30.arff").getDataSet();
+		trainSize = (int) Math.round(data.numInstances() * 0.2);        
+        trainDataSet = new Instances(data, 0, trainSize);
+        trainDataSet.setClassIndex(data.numAttributes() - 1);        
+        pointsTraining.add(getTrainingPoint(trainDataSet, c));
+        
+    	data = new DataSource("abalone.arff").getDataSet();
 		data.setClassIndex(data.numAttributes() - 1);
-		pointsTraining.add(getTrainingPoint(data, c));
-		data = new DataSource("diabetes40.arff").getDataSet();
+		trainSize = (int) Math.round(data.numInstances() * 0.3);        
+        trainDataSet = new Instances(data, 0, trainSize);
+        trainDataSet.setClassIndex(data.numAttributes() - 1);        
+        pointsTraining.add(getTrainingPoint(trainDataSet, c));
+        
+    	data = new DataSource("abalone.arff").getDataSet();
 		data.setClassIndex(data.numAttributes() - 1);
-		pointsTraining.add(getTrainingPoint(data, c));
-		data = new DataSource("diabetes50.arff").getDataSet();
+		trainSize = (int) Math.round(data.numInstances() * 0.4);        
+        trainDataSet = new Instances(data, 0, trainSize);
+        trainDataSet.setClassIndex(data.numAttributes() - 1);        
+        pointsTraining.add(getTrainingPoint(trainDataSet, c));
+        
+    	data = new DataSource("abalone.arff").getDataSet();
 		data.setClassIndex(data.numAttributes() - 1);
-		pointsTraining.add(getTrainingPoint(data, c));
-		data = new DataSource("diabetes60.arff").getDataSet();
+		trainSize = (int) Math.round(data.numInstances() * 0.5);        
+        trainDataSet = new Instances(data, 0, trainSize);
+        trainDataSet.setClassIndex(data.numAttributes() - 1);        
+        pointsTraining.add(getTrainingPoint(trainDataSet, c));
+        
+    	data = new DataSource("abalone.arff").getDataSet();
 		data.setClassIndex(data.numAttributes() - 1);
-		pointsTraining.add(getTrainingPoint(data, c));
-		data = new DataSource("diabetes70.arff").getDataSet();
+		trainSize = (int) Math.round(data.numInstances() * 0.6);        
+        trainDataSet = new Instances(data, 0, trainSize);
+        trainDataSet.setClassIndex(data.numAttributes() - 1);        
+        pointsTraining.add(getTrainingPoint(trainDataSet, c));
+        
+    	data = new DataSource("abalone.arff").getDataSet();
 		data.setClassIndex(data.numAttributes() - 1);
-		pointsTraining.add(getTrainingPoint(data, c));
-		data = new DataSource("diabetes80.arff").getDataSet();
+		trainSize = (int) Math.round(data.numInstances() * 0.7);        
+        trainDataSet = new Instances(data, 0, trainSize);
+        trainDataSet.setClassIndex(data.numAttributes() - 1);        
+        pointsTraining.add(getTrainingPoint(data, c));
+        
+    	data = new DataSource("abalone.arff").getDataSet();
 		data.setClassIndex(data.numAttributes() - 1);
-		pointsTraining.add(getTrainingPoint(data, c));
-		data = new DataSource("diabetes.arff").getDataSet();
+		trainSize = (int) Math.round(data.numInstances() * 0.8);        
+        trainDataSet = new Instances(data, 0, trainSize);
+        trainDataSet.setClassIndex(data.numAttributes() - 1);        
+        pointsTraining.add(getTrainingPoint(trainDataSet, c));
+        
+    	data = new DataSource("abalone.arff").getDataSet();
 		data.setClassIndex(data.numAttributes() - 1);
-		pointsTraining.add(getTrainingPoint(data, c));
-
+		trainSize = (int) Math.round(data.numInstances() * 1);        
+        trainDataSet = new Instances(data, 0, trainSize);
+        trainDataSet.setClassIndex(data.numAttributes() - 1);        
+        pointsTraining.add(getTrainingPoint(trainDataSet, c));
+		
+		
 		return pointsTraining;
 	}
 
